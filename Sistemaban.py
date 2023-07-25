@@ -25,18 +25,14 @@ def sacar():
             saldo = saldo - saque
             print('Voce sacou da sua conta %s' %(saque))
     
-
 def Extrato():
     print('Esse é o seu extrato')
     print('Seu saldo é de: %s'%(saldo))
     
-
 saldo = 0
 limite = 500
 numero_saques = 0 
 liite_saques = 3
-
-
 
 while True:
 
