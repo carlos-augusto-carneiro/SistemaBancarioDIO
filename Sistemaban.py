@@ -1,3 +1,9 @@
+dic = {}
+
+cliente = []
+contas = []
+
+
 def depositar():
     global saldo
     print('Quanto deseja depositar?')
@@ -29,33 +35,97 @@ def Extrato():
     print('Esse é o seu extrato')
     print('Seu saldo é de: %s'%(saldo))
     
+def criarCliente():
+    print('Digite seu nome:')
+    nome = str(input())
+    print('Digite sua data de nascimento:')
+    nascimento = str(input())
+    print('Digite seu CPF:')
+    cpf = str(input())
+    print('Digite o logradouro:')
+    logradouro = str(input())
+    print('Digite seu bairro:')
+    bairro = str(input)
+    print('Digite sua cidade/estado:')
+    cidade = str(input())
+    print('Digite sua senha:')
+    senha = str(input())
+
+    cliente.append(nome)
+    cliente.append(nascimento)
+    cliente.append(cpf)
+    cliente.append(logradouro)
+    cliente.append(bairro)
+    cliente.append(cidade)
+    cliente.append(senha)
+
+def criarConta():
+    print('Digite seu cpf:')
+    cpf = str(input())
+
+    if cpf in cliente:
+        print('Digite sua agencia:')
+        agencia = str(input())
+        print('Digite sua numero da conta:')
+        numero = str(input())
+        print('Digite seu usuario:')
+        usuario = str(input())
+
+        contas.append(agencia)
+        contas.append(numero)
+        contas.append(usuario)
+        contas.append(cpf)
+
+    else:
+        print('Voce nao está ainda cadastrado como cliente')
+
 saldo = 0
 limite = 500
 numero_saques = 0 
 liite_saques = 3
 
+
 while True:
 
     print('Selecione a opção:')
-    print('[1]-Depositar\n[2]-Sacar\n[3]-Extrato\n[4]-Sair')
-    opcao = int(input())
+    print('[1]-login\n[2]-Criar cliente\n[3]-Criar conta\n[4]-Sair')
+    op = int(input())
 
-    if opcao == 1:
-        print('<<<<<<<< Voce acessou a area de depostio >>>>>>>>')
-        depositar()
+    if op == 1:
+        print('Seu cpf:')
+        cpf = str(input())
+        print('Sua senha:')
+        senha = str(input())
 
-    elif opcao == 2:
-        print('<<<<<<<< Voce acessou a area de saque >>>>>>>>')
-        sacar()
+        if (cpf in cliente) and (senha in cliente):
+            print('[1]-Depositar\n[2]-Sacar\n[3]-Extrato\n[4]-Sair')
+            opcao = int(input())
 
-    elif opcao == 3:
-        print('<<<<<<<< Voce acessou a area de extrato >>>>>>>>')
-        Extrato()
+            if opcao == 1:
+                print('<<<<<<<< Voce acessou a area de depostio >>>>>>>>')
+                depositar()
 
-    elif opcao  == 4:
-        print('<<<<<<<< Até logo, volte sempre!! >>>>>>>>')
-        break
+            elif opcao == 2:
+                print('<<<<<<<< Voce acessou a area de saque >>>>>>>>')
+                sacar()
 
-    else:
-        print('ERRO, digite novamente')
+            elif opcao == 3:
+                print('<<<<<<<< Voce acessou a area de extrato >>>>>>>>')
+                Extrato()
 
+            elif opcao  == 4:
+                print('<<<<<<<< Até logo, volte sempre!! >>>>>>>>')
+                break
+
+            else:
+                print('ERRO, digite novamente')
+
+'''    elif op == 2:
+        print('Seu cpf:')
+        cpf = str(input())
+        print('Sua senha:')
+        senha = str(input())
+
+        if (cpf in cliente) and (senha in cliente):
+
+'''
